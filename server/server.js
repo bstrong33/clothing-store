@@ -15,6 +15,8 @@ app.use(session({
     saveUninitialized: false
 }));
 
+app.get('/api/menshirts', controller.getMenShirts);
+
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db);
     app.listen(SERVER_PORT, () => {

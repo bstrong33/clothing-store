@@ -1,17 +1,32 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import MenSideNav from './MenSideNav';
+import MenShirts from './MenShirts';
+import MenPants from './MenPants';
+import MenAccessories from './MenAccessories';
 
 class Men extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            displayedClothes: ''
+        }
+    }
+
+    updateDisplay = (clothingType) => {
+        this.setState({
+            displayedClothes: clothingType
+        })
+    }
 
     render(){
         return (
             <div>
                 <h3>Men</h3>
-                <div>
-                    <Link to='/Men/MenShirts'><button>Shirts</button></Link>
-                    <button>Pants</button>
-                    <button>Accessories</button>
-                </div>
+                <MenSideNav updateFn={this.updateDisplay} />
+                {this.state.displayedClothes === 'shirt' ? <MenShirts /> : null}
+                {this.state.displayedClothes === 'pants' ? <MenPants /> : null}
+                {this.state.displayedClothes === 'accessories' ? <MenAccessories /> : null}
             </div>
         )
     } 
