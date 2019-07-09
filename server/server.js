@@ -16,6 +16,11 @@ app.use(session({
 }));
 
 app.get('/api/menshirts', controller.getMenShirts);
+app.get('/api/menpants', controller.getMenPants);
+app.get('/api/menaccessories', controller.getMenAccessories);
+app.get('/api/womenshirts', controller.getWomenShirts);
+app.get('/api/womenpants', controller.getWomenPants);
+app.get('/api/womenaccessories', controller.getWomenAccessories);
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db);

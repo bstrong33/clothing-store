@@ -1,3 +1,3 @@
 SELECT img_url, id, name, price
-FROM mens_clothing
+FROM womens_clothing
 WHERE clothing_type = 'shirt';
