@@ -10,23 +10,23 @@ class MenShirts extends Component {
         }
     }
 
-componentDidMount() {
-    this.getShirts()
-}
+    componentDidMount() {
+        this.getShirts()
+    }
 
-getShirts = () => {
-    axios.get('/api/menshirts').then(res => {
-        this.setState({
-            shirts: res.data
+    getShirts = () => {
+        axios.get('/api/menshirts').then(res => {
+            this.setState({
+                shirts: res.data
+            })
         })
-        console.log(this.state.shirts)
-    })
-}
+    }
+    
     render() {
         let mappedShirts = this.state.shirts.clothes.map(shirt => {
             return (
                 <div key={shirt.id}>
-                    <img src={shirt.img_url} />
+                    <img src={shirt.img_url} alt='' />
                     <p>{shirt.name}</p>
                     <p>{shirt.price}</p>
                 </div>

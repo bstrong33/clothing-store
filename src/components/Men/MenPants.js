@@ -10,24 +10,23 @@ class MenPants extends Component {
         }
     }
 
-componentDidMount() {
-    this.getPants()
-}
+    componentDidMount() {
+        this.getPants()
+    }
 
-getPants = () => {
-    axios.get('/api/menpants').then(res => {
-        this.setState({
-            pants: res.data
+    getPants = () => {
+        axios.get('/api/menpants').then(res => {
+            this.setState({
+                pants: res.data
+            })
         })
-        console.log(this.state.pants)
-    })
-}
+    }
 
     render() {
         let mappedPants = this.state.pants.clothes.map(pant => {
             return (
                 <div key={pant.id}>
-                    <img src={pant.img_url} />
+                    <img src={pant.img_url} alt='' />
                     <p>{pant.name}</p>
                     <p>{pant.price}</p>
                 </div>
