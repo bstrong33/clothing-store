@@ -27,7 +27,7 @@ class WomenPants extends Component {
         let mappedPants = this.state.pants.clothes.map(pant => {
             return (
                 <div key={pant.id}>
-                    <img src={pant.img_url} alt='' />
+                    <button><img src={pant.img_url} alt='' /></button>
                     <p>{pant.name}</p>
                     <p>{pant.price}</p>
                 </div>

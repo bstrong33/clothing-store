@@ -26,7 +26,7 @@ class MenAccessories extends Component {
         let mappedAccessories = this.state.accessories.clothes.map(accessory => {
             return (
                 <div key={accessory.id}>
-                    <img src={accessory.img_url} alt='' />
+                    <button><img src={accessory.img_url} alt='' /></button>
                     <p>{accessory.name}</p>
                     <p>{accessory.price}</p>
                 </div>

@@ -26,7 +26,7 @@ class MenShirts extends Component {
         let mappedShirts = this.state.shirts.clothes.map(shirt => {
             return (
                 <div key={shirt.id}>
-                    <img src={shirt.img_url} alt='' />
+                    <button><img src={shirt.img_url} alt='' /></button>
                     <p>{shirt.name}</p>
                     <p>{shirt.price}</p>
                 </div>

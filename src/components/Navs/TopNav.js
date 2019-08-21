@@ -6,7 +6,7 @@ class TopNav extends Component {
     render() {
         return (
             <div>
-                <Link to='/'><button>The Clothing Store</button></Link>
+                <Link to='/'><button>Home</button></Link>
                 <Link to='/Men'><button>Men</button></Link>
                 <Link to='/Women'><button>Women</button></Link>
             </div>
