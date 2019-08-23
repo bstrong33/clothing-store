@@ -6,7 +6,9 @@ class MenShirts extends Component {
         super(props);
         
         this.state = {
-            shirts: {clothes: []}
+            shirts: {clothes: []},
+            shirtToAddToCart: {},
+            toggle: 'hidden'
         }
     }
 
@@ -21,12 +23,20 @@ class MenShirts extends Component {
             })
         })
     }
+
+    revealAddToCart = (shirt) => {
+        this.setState({
+            shirtToAddToCart: shirt,
+            toggle: 'showAddToCart'
+        })
+        console.log(this.state.shirtToAddToCart, this.state.toggle)
+    }
     
     render() {
         let mappedShirts = this.state.shirts.clothes.map(shirt => {
             return (
                 <div key={shirt.id}>
-                    <button><img src={shirt.img_url} alt='' /></button>
+                    <button onClick={() => {this.revealAddToCart(shirt)}}><img src={shirt.img_url} alt='' /></button>
                     <p>{shirt.name}</p>
                     <p>{shirt.price}</p>
                 </div>
@@ -37,6 +47,20 @@ class MenShirts extends Component {
             <div>
                 <p>Shirts</p>
                 {mappedShirts}
+
+                {this.state.toggle === 'hidden' ? null : 
+                <div className={this.state.toggle}>
+                    <h4>Pre-Cart</h4>
+                    <h5>{this.state.shirtToAddToCart.name}</h5>
+                    <h5>{this.state.shirtToAddToCart.price}</h5>
+                    <img src={this.state.shirtToAddToCart.img_url} alt='' />
+                    <h6>Size</h6>
+                    <button>Small</button>
+                    <button>Medium</button>
+                    <button>Large</button>
+                    <h6>Quantity</h6>
+                </div>
+                }
             </div>
         )
     }

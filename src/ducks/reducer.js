@@ -1,5 +1,5 @@
 const initialState = {
-    cart: []
+    cart: {}
 }
 
 const UPDATE_CART = 'UPDATE_CART'
